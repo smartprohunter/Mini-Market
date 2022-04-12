@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__slider__content">
+                            <div class="product__details__pic__slider">
+                                <img data-hash="product" class="product__big__img"
+                                     src="{{ shop_item.image.url }}" alt="">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text">
+                        <h3>{{ shop_item.name }} <span>Seller: {{ seller.username }}</span></h3>
+
+                        <div class="product__details__price">$ {{ shop_item.price }}
+                            <p>{{ shop_item.description }}</p>
+
+                            <div class="product__details__button">
+
+                                {% if seller.pk == request.user.pk %}
+                                    <a href="{% url 'edit item' shop_item.id %}" class="cart-btn"><span
+                                            class="icon_refresh"></span> Edit</a>
+                                    <a href="{% url 'delete item' shop_item.id %}" class="cart-btn"><span
+                                            class="icon_trash_alt"></span> Delete</a>
+
+                                {% else %}
+                                    <form method="post" action="{% url 'shop details page' shop_item.id %}"
+                                          enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <button class="cart-btn"><span class="icon_bag_alt" type="submit"></span> Add to
+                                            cart
+                                        </button>
+                                    </form>
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+
+
+{% endblock %}

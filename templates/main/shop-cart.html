@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <!-- Shop Cart Section Begin -->
+    <section class="shop-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shop__cart__table">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+
+                            {% for bought_item in bought_items %}
+                                <tr>
+                                    <td class="cart__product__item">
+                                        <img src="{{ bought_item.image }}" alt="">
+                                        <div class="cart__product__item__title">
+                                            <h6>{{ bought_item.name }}</h6>
+
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">$ {{ bought_item.price }}</td>
+
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="cart__btn">
+                        <a href="{% url 'shop page' %}">Continue Shopping</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-4 offset-lg-2">
+                    <div class="cart__total__procced">
+                        <h6>Cart total</h6>
+                        <form method="post" action="{% url 'cart page' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <button class="primary-btn"><span class="icon_bag_alt" type="submit"></span> Proceed to
+                                checkout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Cart Section End -->
+
+{% endblock %}
