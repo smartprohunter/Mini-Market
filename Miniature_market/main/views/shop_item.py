@@ -7,7 +7,7 @@ from Miniature_market.main.models import ShopItem
 
 class CreateShopItem(views.CreateView):
     model = ShopItem
-    template_name = 'main/shop_item_create.html'
+    template_name = 'main/shop_item_crud/shop_item_create.html'
     success_url = reverse_lazy('home page')
     form_class = CreateShopItemForm
 
@@ -19,7 +19,7 @@ class CreateShopItem(views.CreateView):
 
 class EditShopItem(views.UpdateView):
     model = ShopItem
-    template_name = 'main/shop_item_edit.html'
+    template_name = 'main/shop_item_crud/shop_item_edit.html'
     fields = ('description',)
 
     def get_success_url(self):
@@ -28,8 +28,6 @@ class EditShopItem(views.UpdateView):
 
 class DeleteShopItem(views.DeleteView):
     model = ShopItem
-    template_name = 'main/shop_item_delete.html'
+    template_name = 'main/shop_item_crud/shop_item_delete.html'
     form_class = DeleteShopItemForm
     success_url = reverse_lazy('home page')
-
-

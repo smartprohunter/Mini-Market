@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import generic as views
 
@@ -13,7 +14,7 @@ class HomePageView(views.TemplateView):
     template_name = 'main/index.html'
 
 
-class ShopPageView(views.ListView):
+class ShopPageView(LoginRequiredMixin, views.ListView):
     model = ShopItem
     template_name = 'main/shop.html'
     context_object_name = 'shop_items'
@@ -42,7 +43,6 @@ def shop_item_details_view(request, pk):
 
 class AboutUsPageView(views.TemplateView):
     template_name = 'main/about_us.html'
-
 
 
 @login_required()
