@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', 'miniature_market_db'),
         'USER': os.getenv('DB_USER', 'postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', '1123QwER'),
-        'HOST': os.getenv('DB_HOST', '127.0.0.1'),
+        'HOST': os.getenv('DB_HOST', "ec2-52-48-159-67.eu-west-1.compute.amazonaws.com" ),
         'PORT': os.getenv('DB_PORT'),
     },
 }
