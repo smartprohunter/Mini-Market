@@ -5,7 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'sk')
 
-DEBUG =  os.getenv.__get__('DEBUG', bool)
+DEBUG = os.getenv.__get__('DEBUG', bool)
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(' ')
 
@@ -17,7 +17,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-
 
     'Miniature_market.main',
     'Miniature_market.accounts',
@@ -62,8 +61,8 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME', 'miniature_market_db'),
         'USER': os.getenv('DB_USER', 'postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', '1123QwER'),
-        'HOST': os.getenv('DB_HOST', "ec2-52-48-159-67.eu-west-1.compute.amazonaws.com" ),
-        'PORT': os.getenv('DB_PORT'),
+        'HOST': os.getenv('DB_HOST', "127.0.0.1"),
+        'PORT': os.getenv('DB_PORT', "5432"),
     },
 }
 
@@ -81,7 +80,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -102,5 +100,3 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.MarketUser'
-
-DEBUG_PROPAGATE_EXCEPTIONS = True

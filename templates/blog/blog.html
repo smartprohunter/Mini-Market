@@ -6,7 +6,7 @@
                 {% for post in posts %}
                     <div class="col-lg-7 col-md-7 col-sm-6">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" src="{{ post.title_image }}" data-setbg="{{ post.title_image }}"></div>
+                        <img style="max-height: 300px; max-width: 300px" src="{{ post.title_image }}" alt="">
                         <div class="blog__item__text">
                             <h6><a href="{% url 'blog details page' post.pk %}">{{ post.title }}</a></h6>
                             <ul>
@@ -19,9 +19,9 @@
 
                 </div>
 
-{#                <div class="col-lg-12 text-center">#}
-{#                    <a href="#" class="primary-btn load-btn">Load more posts</a>#}
-{#                </div>#}
+                {#                <div class="col-lg-12 text-center">#}
+                {#                    <a href="#" class="primary-btn load-btn">Load more posts</a>#}
+                {#                </div>#}
             </div>
         </div>
     </section>

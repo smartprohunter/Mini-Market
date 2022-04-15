@@ -108,7 +108,7 @@ class BlogPost(models.Model):
         auto_now_add=True,
     )
 
-    title_image= models.ImageField()
+    title_image= models.URLField()
 
     def __str__(self):
         return self.title

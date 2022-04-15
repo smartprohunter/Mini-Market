@@ -14,3 +14,4 @@ class BlogDetailsPageView(views.DetailView):
     model = BlogPost
     template_name = 'blog/blog-details.html'
     context_object_name = 'post'
+

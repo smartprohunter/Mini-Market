@@ -33,6 +33,10 @@ class MarketUser( auth_models.PermissionsMixin,auth_models.AbstractBaseUser,):
     def __str__(self):
         return self.username
 
+    class Meta:
+        app_label = 'accounts'
+
+
 
 class Profile(models.Model):
     FIRST_NAME_MIN_LENGTH = 2

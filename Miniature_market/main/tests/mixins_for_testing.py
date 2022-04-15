@@ -1,8 +1,8 @@
-from django.contrib.auth import get_user_model
 
 from Miniature_market.main.models import ShopItem, BoughtItem
 
-UserModel= get_user_model()
+
+
 class ValidDataMixin:
     VALID_USER_CREDENTIALS = {
         'username': 'testuser',
@@ -27,8 +27,9 @@ class ValidDataMixin:
         'type': ShopItem.CHAOS_SPACE_MARINES,
 
     }
-    def _create_user(self, **kwargs):
-        return UserModel.objects.create_user(**kwargs)
+
+    # def _create_user(self, **kwargs):
+    #     return UserModel.objects.create_user(**kwargs)
 
     def _create_shop_item(self, user):
         shop_item = ShopItem.objects.create(

@@ -19,7 +19,7 @@
 
 {#        {% endif %}#}
 
-        <div class="col-lg-5 col-md-5">
+        <div class="col-lg-9 col-md-9">
             <div class="row">
 
                 {% for shop_item in shop_items %}
@@ -27,7 +27,7 @@
 
 
                         <div class="product__item">
-                            <img src="{{ shop_item.image.url }}" alt="">
+                            <img style="max-height: 300px; max-width: 300px" src="{{ shop_item.image.url }}" alt="">
                             <div class="product__item__pic set-bg" data-setbg="{{ shop_item.image }}">
 
                             </div>
