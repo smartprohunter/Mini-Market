@@ -17,6 +17,7 @@ class HomePageView(views.TemplateView):
 class ShopPageView(LoginRequiredMixin, views.ListView):
     model = ShopItem
     template_name = 'main/shop.html'
+    paginate_by = 3
     context_object_name = 'shop_items'
 
 
