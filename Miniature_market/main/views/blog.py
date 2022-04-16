@@ -8,6 +8,8 @@ class BlogPageView(LoginRequiredMixin, views.ListView):
     model = BlogPost
     template_name = 'blog/blog.html'
     context_object_name = 'posts'
+    paginate_by = 3
+
 
 
 class BlogDetailsPageView(views.DetailView):

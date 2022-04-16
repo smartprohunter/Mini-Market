@@ -2,8 +2,6 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 
-# Create your models here.
-
 UserModel = get_user_model()
 
 
@@ -44,7 +42,10 @@ class ShopItem(models.Model):
         max_length=max(len(x) for (x, _) in TYPES),
         choices=TYPES,
     )
-    price = models.FloatField(
+    price = models.DecimalField(
+        decimal_places=2,
+        max_digits=8,
+
         validators=(
             MinValueValidator(0),
         )
